@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIỆT PHỤC REMIX — Di Sản Trong Dáng Dấp Đương Thời</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond (Editorial) + Plus Jakarta Sans (Modern Clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- html2canvas xuất ảnh PNG Lookbook thực tế -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+          },
+          colors: {
+            ink: '#11100F',         // Đen mực tàu
+            paper: '#F8F6F0',       // Trắng giấy dó
+            vermilion: '#A6261D',   // Đỏ chu sa
+            ochre: '#C8832A',       // Vàng thổ hoàng
+            indigoMuted: '#233044', // Xanh chàm trầm
+            stoneMuted: '#EAE6DF',  // Viền mộc
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8F6F0;
+      color: #11100F;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    /* Hiệu ứng tráng màu trực tiếp lên tà áo khi chọn bảng màu */
+    .costume-tint {
+      transition: filter 0.4s ease, transform 0.3s ease;
+    }
+
+    /* Custom scrollbar thanh lịch */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D5CEBF;
+      border-radius: 99px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-vermilion selection:text-white">
+
+  <!-- TOP EDITORIAL BAR -->
+  <aside class="border-b border-stoneMuted px-6 py-2.5 flex items-center justify-between text-xs tracking-wider text-stone-500 uppercase font-medium">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-vermilion inline-block"></span>
+      <span>Hồ Sơ Dự Thi Audition 2026 — Phối Việt Phục Gen Z</span>
+    </div>
+    <div class="hidden sm:block tracking-widest text-[11px]">
+      HERITAGE × CONTEMPORARY VIBES
+    </div>
+  </aside>
+
+  <!-- NAVIGATION BAR (MINIMALIST & EDITORIAL) -->
+  <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md border-b border-stoneMuted transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo Typography -->
+      <a href="javascript:void(0)" onclick="goToGallery()" class="group flex items-baseline gap-3">
+        <span class="font-serif text-3xl font-bold tracking-tight text-ink group-hover:text-vermilion transition">VIỆT PHỤC REMIX</span>
+        <span class="text-xs font-serif italic text-stone-400 hidden sm:inline">Volume I : Tứ Đại Cổ Y</span>
+      </a>
+
+      <!-- Quick Nav Buttons -->
+      <nav class="flex items-center gap-4 text-sm font-medium">
+        <button onclick="goToGallery()" class="px-3 py-2 text-stone-600 hover:text-ink transition">
+          Bộ Sưu Tập
+        </button>
+        <button onclick="openStudio('ao_dai')" class="flex items-center gap-2 bg-ink text-paper hover:bg-vermilion px-5 py-2.5 rounded-full transition duration-200 text-xs font-semibold tracking-wide uppercase">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Bàn Thử Đồ</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto px-6 py-10 w-full">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: GALLERY & EDITORIAL INTRO          -->
+    <!-- ========================================== -->
+    <section id="gallerySection" class="transition-opacity duration-300">
+      
+      <!-- EDITORIAL HERO (KHÔNG BLUR TÍM, KHÔNG CARD SaaS) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 mb-12 border-b border-stoneMuted">
+        <div class="lg:col-span-8 space-y-4">
+          <p class="text-xs font-semibold tracking-widest text-vermilion uppercase font-mono">
+            01 / MANIFESTO VĂN HÓA
+          </p>
+          <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-ink">
+            Mặc lại tà áo cũ, <br>
+            <span class="font-normal italic text-stone-500">bằng nhịp thở hôm nay.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4 text-sm text-stone-600 leading-relaxed font-light space-y-3">
+          <p>
+            Việt phục không phải là hiện vật nằm yên trong tủ kính bảo tàng. Đây là nền tảng sáng tạo mở giúp người trẻ khám phá cấu trúc trang phục truyền thống, phân biệt hoàn cảnh lễ nghi và tự tin đưa cổ phục hòa vào đời sống đương đại.
+          </p>
+          <div class="pt-2 flex items-center gap-4 text-xs font-semibold text-ink">
+            <span>• 4 Dáng áo tiêu biểu</span>
+            <span>• Bộ lọc quy tắc văn hóa</span>
+            <span>• Xuất lookbook cá nhân</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALLERY SECTION HEADER -->
+      <div class="flex items-baseline justify-between mb-8">
+        <div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-ink">Danh Mục Tứ Đại Cổ Y</h2>
+          <p class="text-xs text-stone-500 mt-1">Chọn trang phục để nghiên cứu cấu trúc di sản và bắt đầu phối đồ</p>
+        </div>
+        <span class="text-xs font-mono text-stone-400">INDEX [01 — 04]</span>
+      </div>
+
+      <!-- 4 COSTUMES GRID (THIẾT KẾ DẠNG LOOKBOOK TẠP CHÍ) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="costumesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: MIX & MATCH STUDIO (PRO CẢI TIẾN)   -->
+    <!-- ========================================== -->
+    <section id="studioSection" class="hidden transition-opacity duration-300">
+      
+      <!-- STUDIO TOP BAR -->
+      <div class="flex items-center justify-between pb-6 mb-8 border-b border-stoneMuted">
+        <button onclick="goToGallery()" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-stone-500 hover:text-ink transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Quay Lại Danh Mục</span>
+        </button>
+
+        <!-- Thanh chọn nhanh 4 trang phục dạng tab tối giản -->
+        <div class="flex items-center gap-1 p-1 bg-stoneMuted/60 rounded-full text-xs font-medium" id="studioCostumeTabs">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- WORKBENCH 2 CỘT: GƯƠNG THỬ ĐỒ (TRÁI) & BÀN ĐIỀU KHIỂN (PHẢI) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- CỘT TRÁI: GƯƠNG THỬ ĐỒ (STAGE) -->
+        <div class="lg:col-span-5 sticky top-28 space-y-4">
+          
+          <div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-stone-200 border border-stoneMuted flex items-center justify-center p-6 shadow-sm">
+            
+            <!-- Bối cảnh không gian thực tế thay đổi phía sau -->
+            <div id="stageEnvironmentBg" class="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-30 filter grayscale-[20%]"></div>
+            
+            <!-- Nhãn bối cảnh góc trên -->
+            <div class="absolute top-4 left-4 z-20 flex items-center gap-2 bg-paper/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-stoneMuted text-[11px] font-mono font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-vermilion"></span>
+              <span id="stageOccasionLabel">Kỷ Yếu Giảng Đường</span>
+            </div>
+
+            <!-- TÀ ÁO VIỆT PHỤC CHÍNH VỚI HIỆU ỨNG TINT MÀU THỰC SỰ -->
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-center">
+              <img id="stageImg" src="" alt="Việt phục" class="max-h-[90%] max-w-[90%] object-contain drop-shadow-xl costume-tint">
+            </div>
+
+            <!-- Thanh hiển thị sắc độ màu đang phối góc dưới -->
+            <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between bg-paper/95 backdrop-blur-md px-4 py-2 rounded-xl border border-stoneMuted text-xs">
+              <div class="flex items-center gap-2.5">
+                <span id="stageColorDot" class="w-3.5 h-3.5 rounded-full border border-black/10 shadow-inner"></span>
+                <span id="stageColorName" class="font-semibold text-ink">Đỏ Chu Sa</span>
+              </div>
+              <span id="harmonyBadge" class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Hài hòa: 95%
+              </span>
+            </div>
+          </div>
+
+          <!-- CẢNH BÁO QUY TẮC VĂN HÓA (CULTURAL GUARDIAN SÚC TÍCH) -->
+          <div id="culturalInsightBox" class="p-4 rounded-xl border border-stoneMuted bg-paper text-xs leading-relaxed space-y-1">
+            <div class="flex items-center gap-2 font-semibold text-ink">
+              <i data-lucide="compass" class="w-4 h-4 text-vermilion"></i>
+              <span id="insightTitle">Gợi ý thẩm mỹ di sản</span>
+            </div>
+            <p id="insightDesc" class="text-stone-600 pl-6">
+              Áo dài trắng thêu hoa phối cùng túi cói mộc mạc và sandal thanh lịch tạo nên outfit vừa truyền thống vừa hiện đại.
+            </p>
+          </div>
+
+          <!-- NÚT XUẤT LOOKBOOK -->
+          <button onclick="openLookbookModal()" class="w-full py-3.5 bg-ink text-paper hover:bg-vermilion rounded-xl text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 transition duration-200">
+            <i data-lucide="image" class="w-4 h-4 text-ochre"></i>
+            <span>Xuất Thẻ Lookbook Đồ Án (.PNG)</span>
+          </button>
+        </div>
+
+        <!-- CỘT PHẢI: BÀN MIX ĐỒ (CONTROLS TỐI GIẢN) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- BƯỚC 1: BỐI CẢNH DỰ ĐỊNH -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3 border-b border-stoneMuted pb-2">
+              <label class="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+                01. Hoàn Cảnh & Bối Cảnh Mặc
+              </label>
+              <span class="text-[11px] text-stone-400">Chọn 1 không gian</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="occasionControls">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- BƯỚC 2: BẢNG MÀU SẮC ĐỘ -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3 border-b border-stoneMuted pb-2">
+              <label class="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+                02. Sắc Màu Ngũ Hành & Cảm Hứng
+              </label>
+              <span class="text-[11px] text-stone-400">Tự động nhuộm màu tà áo</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="colorControls">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- BƯỚC 3: PHỤ KIỆN REMIX (CHỌN LỌC, KHÔNG DÁN NHÃN LẠM DỤNG) -->
+          <div>
+            <div class="flex items-baseline justify-between mb-3 border-b border-stoneMuted pb-2">
+              <label class="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+                03. Phụ Kiện Phối Kèm (Trad x Gen Z)
+              </label>
+              <span class="text-[11px] text-stone-400">Bấm để thêm hoặc bớt</span>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Đầu & Cổ -->
+              <div>
+                <p class="text-[11px] font-semibold text-stone-400 mb-2 uppercase tracking-wider">Đầu & Cổ:</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="headAccControls"></div>
+              </div>
+
+              <!-- Cầm tay -->
+              <div>
+                <p class="text-[11px] font-semibold text-stone-400 mb-2 uppercase tracking-wider">Vật phẩm cầm tay & Túi:</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="handAccControls"></div>
+              </div>
+
+              <!-- Giày dép -->
+              <div>
+                <p class="text-[11px] font-semibold text-stone-400 mb-2 uppercase tracking-wider">Giày dép đương đại:</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="footAccControls"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 4: HỒ SƠ LỊCH SỬ CỦA TRANG PHỤC NÀY -->
+          <div class="bg-white p-6 rounded-2xl border border-stoneMuted space-y-3 text-xs leading-relaxed">
+            <h4 class="font-serif text-base font-bold text-ink flex items-center gap-2">
+              <i data-lucide="book" class="w-4 h-4 text-vermilion"></i>
+              Tư Liệu Nguồn Cội & Quy Cách
+            </h4>
+            <div id="costumeHistoryText" class="space-y-2 text-stone-600">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CHI TIẾT TRANG PHỤC (2 CỘT: ẢNH TRÁI - MÔ TẢ PHẢI)-->
+  <!-- ========================================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6">
+    <div class="bg-paper rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden border border-stoneMuted shadow-2xl flex flex-col md:flex-row relative">
+      
+      <!-- Nút đóng góc phải -->
+      <button onclick="closeDetailModal()" class="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-paper/80 hover:bg-ink hover:text-paper text-ink border border-stoneMuted shadow-sm flex items-center justify-center transition backdrop-blur-sm">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- CỘT BÊN TRÁI (LHS): HÌNH ẢNH TOÀN CẢNH + NÚT ĐIỀU HƯỚNG < VÀ > -->
+      <div class="md:w-5/12 bg-stone-200/80 p-6 flex flex-col justify-between items-center relative border-b md:border-b-0 md:border-r border-stoneMuted select-none min-h-[320px] md:min-h-full">
+        
+        <!-- Header phụ cột ảnh -->
+        <div class="w-full flex items-center justify-between text-xs font-mono text-stone-500 z-10">
+          <span id="modalDynasty" class="bg-paper/95 px-3 py-1 rounded-full border border-stoneMuted shadow-sm">
+            Thời kỳ
+          </span>
+          <span id="modalCounter" class="bg-ink text-paper px-2.5 py-0.5 rounded-full text-[11px]">
+            1 / 4
+          </span>
+        </div>
+
+        <!-- Khung ảnh trung tâm + 2 nút < và > -->
+        <div class="relative w-full flex-1 flex items-center justify-center py-4 my-auto">
+          <!-- Nút lùi lại (<) -->
+          <button onclick="navigateModalCostume(-1)" class="absolute left-0 z-20 w-10 h-10 rounded-full bg-paper/90 hover:bg-ink hover:text-paper text-ink border border-stoneMuted shadow-md flex items-center justify-center transition active:scale-90 group" title="Trang phục trước (Phím ←)">
+            <i data-lucide="chevron-left" class="w-5 h-5 group-hover:-translate-x-0.5 transition-transform"></i>
+          </button>
+
+          <!-- Ảnh trang phục -->
+          <img id="modalImg" src="" class="max-h-[380px] w-auto max-w-[85%] object-contain drop-shadow-xl transition-all duration-300">
+
+          <!-- Nút tiến tới (>) -->
+          <button onclick="navigateModalCostume(1)" class="absolute right-0 z-20 w-10 h-10 rounded-full bg-paper/90 hover:bg-ink hover:text-paper text-ink border border-stoneMuted shadow-md flex items-center justify-center transition active:scale-90 group" title="Trang phục kế tiếp (Phím →)">
+            <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform"></i>
+          </button>
+        </div>
+
+        <!-- Footer chỉ dẫn phím tắt -->
+        <div class="text-[11px] text-stone-400 font-mono tracking-wider text-center hidden md:block">
+          DÙNG PHÍM ← / → ĐỂ ĐỔI NHANH
+        </div>
+      </div>
+
+      <!-- CỘT BÊN PHẢI (RHS): THÔNG TIN MÔ TẢ CHI TIẾT + CTA PHỐI ĐỒ -->
+      <div class="md:w-7/12 p-6 sm:p-8 overflow-y-auto max-h-[85vh] md:max-h-[88vh] flex flex-col justify-between space-y-6">
+        
+        <div class="space-y-5">
+          <!-- Tên & Phân loại -->
+          <div class="border-b border-stoneMuted pb-4">
+            <span id="modalCategory" class="text-xs font-mono uppercase tracking-widest text-vermilion block">PHÂN LOẠI DI SẢN</span>
+            <h3 id="modalName" class="font-serif text-3xl sm:text-4xl font-bold text-ink mt-1">Tên Việt Phục</h3>
+            <p id="modalSubtitle" class="text-xs sm:text-sm text-stone-500 mt-1 leading-relaxed">Đặc trưng cấu trúc</p>
+          </div>
+
+          <!-- Các khối thông tin văn hóa (Hiện lần lượt với hiệu ứng mượt) -->
+          <div class="space-y-3.5 text-xs sm:text-sm leading-relaxed" id="modalInfoBlocks">
+            <!-- Nguồn gốc (Khối 1) -->
+            <div id="blockOrigin" class="p-4 rounded-2xl bg-white border border-stoneMuted shadow-sm space-y-1 transition-all duration-700 ease-out transform opacity-0 translate-y-4">
+              <h5 class="font-bold text-ink flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-ochre">
+                <i data-lucide="scroll" class="w-3.5 h-3.5 text-ochre"></i>
+                1. Nguồn Gốc & Niên Đại
+              </h5>
+              <p id="modalOrigin" class="text-stone-600 leading-relaxed">...</p>
+            </div>
+
+            <!-- Ý nghĩa (Khối 2) -->
+            <div id="blockMeaning" class="p-4 rounded-2xl bg-white border border-stoneMuted shadow-sm space-y-1 transition-all duration-700 ease-out transform opacity-0 translate-y-4">
+              <h5 class="font-bold text-ink flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-vermilion">
+                <i data-lucide="feather" class="w-3.5 h-3.5 text-vermilion"></i>
+                2. Ý Nghĩa Văn Hóa & Triết Lý
+              </h5>
+              <p id="modalMeaning" class="text-stone-600 leading-relaxed">...</p>
+            </div>
+
+            <!-- Cảnh báo văn hóa (Khối 3) -->
+            <div id="blockWarning" class="p-4 rounded-2xl bg-red-50/80 border border-red-200 space-y-1 transition-all duration-700 ease-out transform opacity-0 translate-y-4">
+              <h5 class="font-bold text-vermilion flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider">
+                <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-vermilion"></i>
+                3. Quy Tắc Trang Phục Cần Tuân Thủ
+              </h5>
+              <p id="modalWarning" class="text-red-950 leading-relaxed">...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thanh nút bấm CTA dưới cùng -->
+        <div class="pt-4 border-t border-stoneMuted flex items-center justify-between gap-3">
+          <div class="flex items-center gap-1.5 text-xs text-stone-400 font-mono hidden sm:flex">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ochre"></i>
+            <span>Sẵn sàng Remix</span>
+          </div>
+          <div class="flex items-center gap-2.5 w-full sm:w-auto">
+            <button onclick="closeDetailModal()" class="px-5 py-2.5 rounded-full border border-stoneMuted text-stone-600 hover:text-ink hover:border-stone-400 text-xs font-semibold tracking-wider transition">
+              Đóng
+            </button>
+            <button id="modalRemixBtn" class="flex-1 sm:flex-initial px-7 py-2.5 rounded-full bg-ink text-paper hover:bg-vermilion text-xs font-semibold uppercase tracking-wider shadow-md transition transform active:scale-95 flex items-center justify-center gap-2">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ochre"></i>
+              <span>Vào Bàn Thử Đồ Ngay</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- MODAL: LOOKBOOK CARD & THỰC HIỆN TẢI PNG   -->
+  <!-- ========================================== -->
+  <div id="lookbookModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-paper rounded-2xl max-w-md w-full overflow-hidden border border-stoneMuted shadow-2xl flex flex-col">
+      
+      <!-- KHUNG THẺ SẼ ĐƯỢC CHỤP LẠI (CAPTURE TARGET) -->
+      <div id="captureCard" class="bg-[#181615] text-paper p-8 relative flex flex-col">
+        
+        <!-- Header Thẻ -->
+        <div class="flex items-start justify-between border-b border-stone-800 pb-4 mb-6">
+          <div>
+            <span class="text-[10px] font-mono tracking-widest text-ochre uppercase block">VIỆT PHỤC REMIX • LOOKBOOK</span>
+            <h4 id="cardName" class="font-serif text-2xl font-bold mt-1 text-white">Áo Dài</h4>
+          </div>
+          <span id="cardOccasion" class="text-[10px] font-mono px-2 py-1 rounded bg-stone-800 text-stone-300">Kỷ Yếu</span>
+        </div>
+
+        <!-- Khung ảnh lookbook trang nhã -->
+        <div class="w-full h-60 bg-stone-900 rounded-xl border border-stone-800 flex items-center justify-center p-4 relative overflow-hidden">
+          <img id="cardImg" src="" class="max-h-full object-contain costume-tint drop-shadow-2xl">
+        </div>
+
+        <!-- Thông số phối đồ -->
+        <div class="mt-6 space-y-2 text-xs font-light">
+          <div class="flex justify-between py-1.5 border-b border-stone-800">
+            <span class="text-stone-400">Màu Sắc:</span>
+            <span id="cardColor" class="font-medium text-ochre">Đỏ Chu Sa</span>
+          </div>
+          <div class="flex justify-between py-1.5 border-b border-stone-800">
+            <span class="text-stone-400">Phụ Kiện:</span>
+            <span id="cardAccs" class="font-medium text-stone-200 text-right max-w-[65%] truncate">Khăn Đóng, Sneaker</span>
+          </div>
+          <div class="flex justify-between py-1.5">
+            <span class="text-stone-400">Chỉ Số Văn Hóa:</span>
+            <span id="cardScore" class="font-mono text-emerald-400">95% (Chuẩn Mực)</span>
+          </div>
+        </div>
+
+        <!-- Footer thẻ -->
+        <div class="mt-6 pt-4 border-t border-stone-800 text-center">
+          <p class="font-serif italic text-stone-400 text-xs">
+            "Nét xưa vẹn nguyên trong bước chân thời đại"
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="p-4 bg-paper border-t border-stoneMuted flex items-center justify-between gap-3">
+        <button onclick="closeLookbookModal()" class="px-4 py-2 text-xs font-semibold text-stone-500 hover:text-ink">
+          Đóng
+        </button>
+        <button id="downloadBtn" onclick="executeDownloadPNG()" class="flex-1 py-2.5 px-4 bg-ink hover:bg-vermilion text-paper text-xs font-semibold rounded-full flex items-center justify-center gap-2 transition">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Tải Ảnh Thẻ Về Máy (.PNG)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EDITORIAL FOOTER -->
+  <footer class="border-t border-stoneMuted py-8 mt-16 text-xs text-stone-500">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Việt Phục Remix — Đề tài tham gia Audition</p>
+      <p class="font-mono text-[11px]">DESIGN SYSTEM: EDITORIAL HERITAGE (ANTI-AI-SLOP)</p>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // DỮ LIỆU 4 VIỆT PHỤC CHUẨN XÁC
+    const COSTUMES = {
+      ao_dai: {
+        id: 'ao_dai',
+        name: 'Áo Dài',
+        category: 'Biểu Tượng Đương Đại',
+        dynasty: 'Thời Nguyễn đến Nay',
+        image: 'art/aodai.jpg',
+        subtitle: 'Thướt tha hai tà, tôn vinh nét đẹp thanh tân',
+        origin: 'Phát triển từ áo ngũ thân lập lĩnh thời chúa Nguyễn Phúc Khoát (1744) và vua Minh Mạng (1836), đến thập niên 1930 được biến tấu bởi họa sĩ Lemur Cát Tường thành áo dài tân thời ôm sát dáng người.',
+        meaning: 'Hai tà áo tượng trưng cho sự dịu dàng, kín đáo nhưng uyển chuyển. Chiếc áo dài gắn liền với nữ sinh, người phụ nữ Việt Nam và các dịp lễ tết long trọng.',
+        warning: 'Tránh chọn chất liệu quá mỏng manh gây phản cảm, hoặc cắt xẻ tà quá cao làm mất đi sự trang nhã truyền thống.',
+        culturalTip: 'Áo dài trắng thêu hoa kết hợp cùng túi cói mộc mạc và sandal thanh lịch tạo nên outfit vừa truyền thống vừa hiện đại rất hợp giới trẻ.'
+      },
+      ao_ngu_than: {
+        id: 'ao_ngu_than',
+        name: 'Áo Ngũ Thân',
+        category: 'Khuôn Thước Nho Nhã',
+        dynasty: 'Triều Nguyễn (1802 - 1945)',
+        image: 'art/nguthan.jpg',
+        subtitle: '5 thân áo tượng trưng cho Tứ thân phụ mẫu & Bản thân',
+        origin: 'Được định hình chuẩn mực bởi chúa Nguyễn Phúc Khoát và phổ cập toàn quốc dưới thời vua Minh Mạng năm 1836. Gồm 2 dạng chính: Áo tấc (tay thụng cho đại lễ) và Áo tay chẽn (cho sinh hoạt hàng ngày).',
+        meaning: '5 vạt áo tượng trưng cho tứ thân phụ mẫu (cha mẹ đẻ, cha mẹ chồng/vợ) và bản thân người mặc ở trong. 5 cúc áo tượng trưng cho Ngũ thường: Nhân - Lễ - Nghĩa - Trí - Tín.',
+        warning: 'Quy tắc cài cúc vạt luôn là vạt bên trái đè sang vạt bên phải (hữu nhậm). Tuyệt đối không cài ngược vạt vì trong phong tục đó là nếp tang phục.',
+        culturalTip: 'Áo ngũ thân cách tân chất liệu tơ voan nhiều lớp phối cùng layout tóc tối giản mang phong thái thanh thoát, bay bổng chuẩn vibe Gen Z.'
+      },
+      ao_tu_than: {
+        id: 'ao_tu_than',
+        name: 'Áo Tứ Thân',
+        category: 'Duyên Dáng Kinh Bắc',
+        dynasty: 'Bắc Bộ Cổ Truyền (Thời Lê - Đầu TK 20)',
+        image: 'art/tuthan.jpg',
+        subtitle: 'Bốn vạt thướt tha kết hợp nón ba tầm, dải thắt lưng',
+        origin: 'Trang phục dân gian phổ biến của phụ nữ miền Bắc từ thời Lê đến đầu thế kỷ 20. Áo gồm bốn vạt: hai vạt sau may liền thành sống lưng, hai vạt trước để buông hoặc thắt vạt duyên dáng.',
+        meaning: 'Bốn vạt tượng trưng cho tứ thân phụ mẫu. Nón ba tầm và dải thắt lưng mềm mại thể hiện vẻ đẹp mộc mạc, đảm đang và duyên dáng của người phụ nữ Việt.',
+        warning: 'Khi phối đồ hiện đại, giữ độ kín đáo ở phần cổ và tà áo; tránh cách tân xẻ tà quá đà gây lệch chuẩn trang phục dân gian.',
+        culturalTip: 'Áo tứ thân sắc xanh chàm phối cùng nón ba tầm và kiềng bạc tròn là combo bất hủ mang đậm phong vị điện ảnh cổ phong.'
+      },
+      nhat_binh: {
+        id: 'nhat_binh',
+        name: 'Nhật Bình & Cổ Phục Lễ',
+        category: 'Quý Tộc Cung Đình',
+        dynasty: 'Triều Nguyễn (1802 - 1945)',
+        image: 'art/nhatbinh.jpg',
+        subtitle: 'Cổ phục trang trọng với dải ngực thêu hoa văn tinh xảo',
+        origin: 'Nhật Bình là triều phục của hoàng tộc triều Nguyễn với dải hoa văn hình chữ nhật đối khâm trước ngực, kết hợp cùng các dạng áo giao lĩnh/viên lĩnh trong hệ thống lễ phục quý tộc Đại Việt xưa.',
+        meaning: 'Mỗi màu sắc và hoa văn thể hiện phẩm cấp, sự tôn nghiêm và tinh hoa kỹ nghệ dệt thêu gấm lụa truyền thống Việt Nam.',
+        warning: 'Trang phục có tính lễ nghi và trang nghiêm cao. Tránh kết hợp cùng phụ kiện quá nhố nhăng, cọc cạch làm mất đi phong thái tôn quý.',
+        culturalTip: 'Cổ phục lễ sắc lam/xanh chàm phối lớp lót đỏ, chân váy hoàng yến đi kèm chuỗi ngọc bội và quạt thẻ tạo phong thái quý tộc tuyệt đối.'
+      }
+    };
+
+    // BỐI CẢNH MÔI TRƯỜNG THỰC TẾ
+    const OCCASIONS = [
+      { id: 'ky_yeu', label: 'Kỷ Yếu Giảng Đường', bgUrl: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&auto=format&fit=crop&q=70', note: 'Không gian học đường thanh xuân' },
+      { id: 'dao_pho', label: 'Dạo Phố Cổ Hội An', bgUrl: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=900&auto=format&fit=crop&q=70', note: 'Phố cổ đèn lồng, năng động dạo chơi' },
+      { id: 'le_hoi', label: 'Chốn Chùa Cổ Tôn Nghiêm', bgUrl: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&auto=format&fit=crop&q=70', note: 'Thanh tịnh, tôn trọng tâm linh' },
+      { id: 'da_tiec', label: 'Không Gian Cung Điện / Tiệc', bgUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&auto=format&fit=crop&q=70', note: 'Lễ nghi trang trọng, lộng lẫy' }
+    ];
+
+    // BẢNG MÀU VÀ HIỆU ỨNG TINT TRỰC TIẾP
+    const COLORS = [
+      { id: 'red', name: 'Đỏ Chu Sa', hex: '#A6261D', filter: 'sepia(30%) saturate(140%) hue-rotate(-20deg)', meaning: 'Hỷ sự, may mắn' },
+      { id: 'blue', name: 'Lam Chàm Cung Đình', hex: '#233044', filter: 'sepia(20%) saturate(120%) hue-rotate(180deg)', meaning: 'Điềm đạm, uyên bác' },
+      { id: 'green', name: 'Ngọc Bích Thanh Khiết', hex: '#1E6F5C', filter: 'sepia(30%) saturate(110%) hue-rotate(90deg)', meaning: 'Tươi mới, thuần tịnh' },
+      { id: 'ochre', name: 'Thổ Hoàng Cổ Điển', hex: '#C8832A', filter: 'sepia(40%) saturate(130%) hue-rotate(15deg)', meaning: 'Ấm áp, phú quý' },
+      { id: 'pink', name: 'Hồng Đào Pastel', hex: '#E0838A', filter: 'sepia(10%) saturate(110%) hue-rotate(300deg)', meaning: 'Ngọt ngào Gen Z' },
+      { id: 'white', name: 'Bạch Tuyết Nguyên Bản', hex: '#F8F6F0', filter: 'none', meaning: 'Trong trẻo, nguyên bản' }
+    ];
+
+    // PHỤ KIỆN
+    const ACCESSORIES = {
+      head: [
+        { id: 'khan_dong', name: 'Khăn Đóng / Khăn Vấn' },
+        { id: 'non_ba_tam', name: 'Nón Ba Tầm Quai Thao' },
+        { id: 'kinh_retro', name: 'Kính Râm Retro Y2K' },
+        { id: 'kieng_bac', name: 'Kiềng Bạc Tròn' }
+      ],
+      hand: [
+        { id: 'quat_go', name: 'Quạt Giấy / Quạt Gỗ Trầm' },
+        { id: 'tui_coi', name: 'Túi Cói Mộc Mạc' },
+        { id: 'chuoi_ngoc', name: 'Chuỗi Ngọc Bội Hoàng Cung' }
+      ],
+      foot: [
+        { id: 'guoc_moc', name: 'Guốc Mộc Quai Ngang' },
+        { id: 'sneaker_white', name: 'Sneaker Trắng Năng Động' },
+        { id: 'hai_theu', name: 'Hài Nhung Thêu Hoa' }
+      ]
+    };
+
+    // STATE TOÀN CỤC
+    let currentCostumeId = 'ao_dai';
+    let selectedOccasion = 'ky_yeu';
+    let selectedColor = 'red';
+    let selectedAccessories = new Set(['khan_dong', 'quat_go', 'sneaker_white']);
+
+    // RENDER GALLERY (LOOKBOOK GRID)
+    function renderGallery() {
+      const container = document.getElementById('costumesGrid');
+      container.innerHTML = '';
+
+      Object.values(COSTUMES).forEach((costume, idx) => {
+        const card = document.createElement('div');
+        card.className = "group cursor-pointer flex flex-col";
+        card.onclick = () => openDetailModal(costume.id);
+
+        card.innerHTML = `
+          <div class="relative w-full aspect-[3/4] bg-stone-200/60 rounded-xl overflow-hidden border border-stoneMuted flex items-center justify-center p-4 transition duration-300 group-hover:border-ink">
+            <span class="absolute top-3 left-3 text-[10px] font-mono text-stone-500 bg-paper/90 px-2 py-0.5 rounded">0${idx + 1}</span>
+            <img src="${costume.image}" alt="${costume.name}" class="max-h-[88%] object-contain transition duration-500 group-hover:scale-105">
+          </div>
+          <div class="mt-3.5 space-y-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-serif text-xl font-bold text-ink group-hover:text-vermilion transition">${costume.name}</h3>
+              <span class="text-[11px] font-mono text-stone-400">${costume.dynasty.split(' ')[0]}</span>
+            </div>
+            <p class="text-xs text-stone-500 line-clamp-1">${costume.subtitle}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // MODAL CHI TIẾT
+    const COSTUME_KEYS = ['ao_dai', 'ao_ngu_than', 'ao_tu_than', 'nhat_binh'];
+
+    function openDetailModal(costumeId) {
+      const costume = COSTUMES[costumeId];
+      if (!costume) return;
+
+      currentCostumeId = costumeId;
+      document.getElementById('modalName').innerText = costume.name;
+      document.getElementById('modalCategory').innerText = costume.category;
+      document.getElementById('modalSubtitle').innerText = costume.subtitle;
+      document.getElementById('modalDynasty').innerText = costume.dynasty;
+      document.getElementById('modalOrigin').innerText = costume.origin;
+      document.getElementById('modalMeaning').innerText = costume.meaning;
+      document.getElementById('modalWarning').innerText = costume.warning;
+
+      // Cập nhật số thứ tự (ví dụ: 1 / 4)
+      const currentIndex = COSTUME_KEYS.indexOf(costumeId);
+      const counterEl = document.getElementById('modalCounter');
+      if (counterEl) {
+        counterEl.innerText = `${currentIndex + 1} / ${COSTUME_KEYS.length}`;
+      }
+
+      document.getElementById('modalImg').src = costume.image;
+
+      document.getElementById('modalRemixBtn').onclick = () => {
+        closeDetailModal();
+        openStudio(costumeId);
+      };
+
+      document.getElementById('detailModal').classList.remove('hidden');
+      lucide.createIcons();
+
+      // KÍCH HOẠT HIỆU ỨNG HIỆN LẦN LƯỢT 3 KHỐI THÔNG TIN (STAGGERED ANIMATION)
+      animateInfoBlocks();
+    }
+
+    function animateInfoBlocks() {
+      const bOrigin = document.getElementById('blockOrigin');
+      const bMeaning = document.getElementById('blockMeaning');
+      const bWarning = document.getElementById('blockWarning');
+
+      // Đưa về trạng thái ẩn ban đầu
+      [bOrigin, bMeaning, bWarning].forEach(el => {
+        if (el) {
+          el.classList.add('opacity-0', 'translate-y-3');
+          el.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+
+      // 1. Hiện Nguồn Gốc & Niên Đại (sau 250ms)
+      setTimeout(() => {
+        if (bOrigin) {
+          bOrigin.classList.remove('opacity-0', 'translate-y-4');
+          bOrigin.classList.add('opacity-100', 'translate-y-0');
+        }
+      }, 250);
+
+      // 2. Hiện Ý Nghĩa Văn Hóa & Triết Lý (sau 650ms)
+      setTimeout(() => {
+        if (bMeaning) {
+          bMeaning.classList.remove('opacity-0', 'translate-y-4');
+          bMeaning.classList.add('opacity-100', 'translate-y-0');
+        }
+      }, 650);
+
+      // 3. Hiện Quy Tắc Trang Phục Cần Tuân Thủ (sau 1050ms)
+      setTimeout(() => {
+        if (bWarning) {
+          bWarning.classList.remove('opacity-0', 'translate-y-4');
+          bWarning.classList.add('opacity-100', 'translate-y-0');
+        }
+      }, 1050);
+    }
+
+    // CHUYỂN QUA LẠI GIỮA CÁC TRANG PHỤC BẰNG NÚT < VÀ >
+    function navigateModalCostume(direction) {
+      const currentIndex = COSTUME_KEYS.indexOf(currentCostumeId);
+      let nextIndex = currentIndex + direction;
+
+      // Xoay vòng tròn danh sách
+      if (nextIndex < 0) {
+        nextIndex = COSTUME_KEYS.length - 1;
+      } else if (nextIndex >= COSTUME_KEYS.length) {
+        nextIndex = 0;
+      }
+
+      const nextCostumeId = COSTUME_KEYS[nextIndex];
+      
+      // Hiệu ứng chuyển động mượt mà
+      const img = document.getElementById('modalImg');
+      img.style.opacity = '0';
+      img.style.transform = direction > 0 ? 'translateX(12px)' : 'translateX(-12px)';
+
+      setTimeout(() => {
+        openDetailModal(nextCostumeId);
+        img.style.opacity = '1';
+        img.style.transform = 'translateX(0)';
+      }, 150);
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+    }
+
+    // ĐIỀU HƯỚNG VIEW
+    function goToGallery() {
+      document.getElementById('studioSection').classList.add('hidden');
+      document.getElementById('gallerySection').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openStudio(costumeId) {
+      currentCostumeId = costumeId || 'ao_dai';
+      document.getElementById('gallerySection').classList.add('hidden');
+      document.getElementById('studioSection').classList.remove('hidden');
+
+      renderStudioTabs();
+      renderControls();
+      updateStudioStage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // TAB CHỌN TRANG PHỤC NHANH
+    function renderStudioTabs() {
+      const container = document.getElementById('studioCostumeTabs');
+      container.innerHTML = Object.values(COSTUMES).map(c => `
+        <button onclick="switchStudioCostume('${c.id}')" class="px-3.5 py-1.5 rounded-full transition text-xs ${currentCostumeId === c.id ? 'bg-ink text-paper font-semibold' : 'text-stone-600 hover:text-ink'}">
+          ${c.name}
+        </button>
+      `).join('');
+    }
+
+    function switchStudioCostume(costumeId) {
+      currentCostumeId = costumeId;
+      renderStudioTabs();
+      renderControls();
+      updateStudioStage();
+    }
+
+    // RENDER CONTROLS
+    function renderControls() {
+      const costume = COSTUMES[currentCostumeId];
+
+      // 1. Occasion
+      const occBox = document.getElementById('occasionControls');
+      occBox.innerHTML = OCCASIONS.map(occ => `
+        <button onclick="setOccasion('${occ.id}')" class="p-3 rounded-xl border text-left transition ${selectedOccasion === occ.id ? 'border-ink bg-white shadow-sm font-semibold text-ink' : 'border-stoneMuted hover:border-stone-400 text-stone-600'}">
+          <p class="text-xs">${occ.label}</p>
+        </button>
+      `).join('');
+
+      // 2. Colors
+      const colBox = document.getElementById('colorControls');
+      colBox.innerHTML = COLORS.map(col => `
+        <button onclick="setColor('${col.id}')" class="p-2.5 rounded-xl border flex items-center gap-2.5 text-left transition ${selectedColor === col.id ? 'border-ink bg-white shadow-sm font-semibold' : 'border-stoneMuted hover:border-stone-400 text-stone-600'}">
+          <span class="w-4 h-4 rounded-full border border-black/10 flex-shrink-0" style="background-color: ${col.hex}"></span>
+          <span class="text-xs truncate">${col.name}</span>
+        </button>
+      `).join('');
+
+      // 3. Accessories
+      renderAccCategory('headAccControls', ACCESSORIES.head);
+      renderAccCategory('handAccControls', ACCESSORIES.hand);
+      renderAccCategory('footAccControls', ACCESSORIES.foot);
+
+      // 4. History Info
+      document.getElementById('costumeHistoryText').innerHTML = `
+        <p><strong>Nguồn gốc:</strong> ${costume.origin}</p>
+        <p><strong>Triết lý:</strong> ${costume.meaning}</p>
+        <p class="text-vermilion"><strong>Quy tắc di sản:</strong> ${costume.warning}</p>
+      `;
+
+      lucide.createIcons();
+    }
+
+    function renderAccCategory(elementId, items) {
+      const container = document.getElementById(elementId);
+      container.innerHTML = items.map(item => {
+        const isSelected = selectedAccessories.has(item.id);
+        return `
+          <button onclick="toggleAccessory('${item.id}')" class="p-2.5 rounded-xl border text-left text-xs transition flex items-center justify-between ${isSelected ? 'border-ink bg-white font-semibold text-ink shadow-sm' : 'border-stoneMuted hover:border-stone-400 text-stone-600'}">
+            <span class="truncate">${item.name}</span>
+            ${isSelected ? '<i data-lucide="check" class="w-3.5 h-3.5 text-vermilion flex-shrink-0"></i>' : ''}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setOccasion(occId) {
+      selectedOccasion = occId;
+      renderControls();
+      updateStudioStage();
+    }
+
+    function setColor(colorId) {
+      selectedColor = colorId;
+      renderControls();
+      updateStudioStage();
+    }
+
+    function toggleAccessory(accId) {
+      if (selectedAccessories.has(accId)) {
+        selectedAccessories.delete(accId);
+      } else {
+        selectedAccessories.add(accId);
+      }
+      renderControls();
+      updateStudioStage();
+    }
+
+    // CẬP NHẬT GƯƠNG THỬ ĐỒ (STAGE ADAPTATION)
+    function updateStudioStage() {
+      const costume = COSTUMES[currentCostumeId];
+      const colorObj = COLORS.find(c => c.id === selectedColor) || COLORS[0];
+      const occObj = OCCASIONS.find(o => o.id === selectedOccasion) || OCCASIONS[0];
+
+      // Đổi ảnh và áp dụng bộ lọc màu thực tế lên áo
+      const img = document.getElementById('stageImg');
+      img.src = costume.image;
+      img.style.filter = colorObj.filter;
+
+      // Đổi bối cảnh phía sau
+      document.getElementById('stageEnvironmentBg').style.backgroundImage = `url('${occObj.bgUrl}')`;
+      document.getElementById('stageOccasionLabel').innerText = occObj.label;
+
+      // Đổi nhãn màu
+      document.getElementById('stageColorDot').style.backgroundColor = colorObj.hex;
+      document.getElementById('stageColorName').innerText = colorObj.name;
+
+      // Đánh giá quy tắc văn hóa (Cultural Guidance)
+      evaluateRules(costume, occObj);
+    }
+
+    function evaluateRules(costume, occasion) {
+      let score = 95;
+      let title = "Bản phối thanh lịch & Hòa hợp";
+      let desc = costume.culturalTip;
+      let scoreClass = "bg-emerald-50 text-emerald-800 border-emerald-200";
+
+      // Kiểm tra: Đi chùa đeo kính râm
+      if (occasion.id === 'le_hoi' && selectedAccessories.has('kinh_retro')) {
+        score -= 25;
+        title = "Lưu ý chốn thờ tự tâm linh";
+        desc = "Khi vào không gian chùa chiền hoặc lễ bái cổ truyền, nên tháo kính râm và tránh trang sức quá nổi loạn để giữ sự thành kính.";
+        scoreClass = "bg-amber-50 text-amber-900 border-amber-300";
+      }
+
+      // Kiểm tra: Nhật bình phối sneaker
+      if (costume.id === 'nhat_binh' && selectedAccessories.has('sneaker_white')) {
+        score -= 10;
+        title = "Gợi ý thẩm mỹ Cổ phục Lễ";
+        desc = "Áo Nhật Bình mang nét tôn quý hoàng gia triều Nguyễn. Kết hợp cùng hài nhung hoặc guốc mộc sẽ tôn trọn vẹn dáng áo hơn so với sneaker.";
+        scoreClass = "bg-sky-50 text-sky-900 border-sky-300";
+      }
+
+      const badge = document.getElementById('harmonyBadge');
+      badge.innerText = `Hài hòa: ${score}%`;
+      badge.className = `text-[11px] font-mono px-2 py-0.5 rounded border ${scoreClass}`;
+
+      document.getElementById('insightTitle').innerText = title;
+      document.getElementById('insightDesc').innerText = desc;
+    }
+
+    // MODAL LOOKBOOK & TẢI ẢNH THẬT
+    function openLookbookModal() {
+      const costume = COSTUMES[currentCostumeId];
+      const colorObj = COLORS.find(c => c.id === selectedColor) || COLORS[0];
+      const occObj = OCCASIONS.find(o => o.id === selectedOccasion) || OCCASIONS[0];
+
+      document.getElementById('cardName').innerText = costume.name;
+      document.getElementById('cardOccasion').innerText = occObj.label;
+      document.getElementById('cardColor').innerText = colorObj.name;
+
+      const cardImg = document.getElementById('cardImg');
+      cardImg.src = costume.image;
+      cardImg.style.filter = colorObj.filter;
+
+      const accNames = [];
+      selectedAccessories.forEach(id => {
+        for (const cat in ACCESSORIES) {
+          const item = ACCESSORIES[cat].find(i => i.id === id);
+          if (item) accNames.push(item.name);
+        }
+      });
+      document.getElementById('cardAccs').innerText = accNames.length > 0 ? accNames.join(', ') : 'Tối giản thuần khiết';
+
+      document.getElementById('lookbookModal').classList.remove('hidden');
+    }
+
+    function closeLookbookModal() {
+      document.getElementById('lookbookModal').classList.add('hidden');
+    }
+
+    // THỰC HIỆN TẢI FILE PNG BẰNG HTML2CANVAS
+    function executeDownloadPNG() {
+      const target = document.getElementById('captureCard');
+      const btn = document.getElementById('downloadBtn');
+      btn.innerText = "Đang xử lý ảnh...";
+
+      html2canvas(target, {
+        scale: 2,
+        backgroundColor: '#181615',
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `VietPhuc_Remix_${currentCostumeId}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> Đã Tải Thành Công!`;
+        lucide.createIcons();
+        setTimeout(() => {
+          btn.innerHTML = `<i data-lucide="download" class="w-3.5 h-3.5"></i> Tải Ảnh Thẻ Về Máy (.PNG)`;
+          lucide.createIcons();
+        }, 2000);
+      }).catch(err => {
+        console.error(err);
+        btn.innerHTML = `<i data-lucide="download" class="w-3.5 h-3.5"></i> Tải Ảnh Thẻ Về Máy (.PNG)`;
+        lucide.createIcons();
+      });
+    }
+
+    // LẮNG NGHE PHÍM MŨI TÊN BÀN PHÍM VÀ PHÍM ESC
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('detailModal');
+      if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') {
+          navigateModalCostume(-1);
+        } else if (e.key === 'ArrowRight') {
+          navigateModalCostume(1);
+        } else if (e.key === 'Escape') {
+          closeDetailModal();
+        }
+      }
+    });
+
+    // KHỞI ĐỘNG
+    window.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+    });
+  </script>
+</body>
+</html>
