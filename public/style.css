@@ -4,3 +4,49 @@
 .ai-error{margin-top:16px;padding:12px;border:1px solid #c99191;border-radius:8px;background:#fff6f0;font-size:12px;line-height:1.6;overflow-wrap:anywhere}.ai-error p{margin:8px 0 0}
 
 .proposal-visual{background:#ece5dd;border-radius:6px;margin:12px 0;height:220px}.proposal-visual svg{width:100%;height:100%}.proposal-reason{margin-top:12px}.proposal-change{border-top:1px solid #cdd5c3;padding-top:10px;font-size:11px}.ai-preview .mini-colors{align-items:flex-start}.ai-preview .mini-colors span{flex:1;font-size:11px}.ai-preview .primary{width:100%;padding:12px 8px}
+
+/* A quieter studio, with the details available when needed. */
+.brand-mark{display:block;flex-shrink:0;width:44px;height:44px}
+.lookbook-nav{display:flex;align-items:center;gap:10px;padding:10px 17px;border:1px solid var(--line);border-radius:24px;font-weight:600}
+.hero .hero-intro{font-family:var(--serif);font-size:17px;line-height:1.9;color:#575448;max-width:470px}
+.hero .hero-eyebrow{font-size:11px;letter-spacing:1.3px}
+.home-collection{margin-top:48px}
+.garment-card .visual{padding:0;overflow:hidden}
+.garment-card .visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .25s}
+.garment-card:hover .visual img{transform:scale(1.025)}
+.garment-card .visual .number{z-index:1;background:var(--paper);padding:3px 8px;border-radius:4px}
+footer{color:#64372f;font-size:14px;font-weight:600;border-top-color:#c9afa2;align-items:center;gap:14px}
+footer button{color:var(--red);background:#f0e4da;border:1px solid #d2b5a7;border-radius:6px;padding:9px 14px;font-size:13px;font-weight:650}
+footer button:hover{background:#e9d6c7}
+.control-panel h3{margin-bottom:24px}
+.control-fold{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+.control-fold summary{display:flex;align-items:center;gap:8px;list-style:none;cursor:pointer;font-size:12px;font-weight:650;min-height:40px;padding:8px 10px;background:#eee9df;border-radius:5px}
+.control-fold summary::-webkit-details-marker{display:none}
+.control-fold summary span{font-size:10px;font-weight:400;color:var(--sage);margin-left:auto;text-align:right}
+.control-fold summary::after{content:'+';font-size:18px;font-weight:400;flex-shrink:0;margin-left:auto}
+.control-fold[open] summary::after{content:'−'}
+.control-fold summary:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.fold-body{padding:16px 0 4px}
+.fold-body .field:first-child{margin-top:0}
+.accent-field{margin-top:22px}
+.studio-info-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.studio-info-card{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;min-height:72px;border:1px solid var(--line);border-radius:8px;padding:16px;background:#f2eee5;font-family:var(--serif);font-size:15px;line-height:1.5}
+.studio-info-card:hover{background:#eae4d8;border-color:#b2baa7}
+.studio-info-card b{font-family:system-ui,sans-serif;color:var(--sage);font-weight:400}
+.compare-button{width:100%;font-size:12px;line-height:1.5;white-space:normal}
+.stage-detail-link{display:block;margin-top:13px;text-align:center}
+.side-stack{grid-template-columns:1fr}
+.developer-notes h2{font-size:clamp(26px,4vw,38px);margin:10px 0 28px}
+.developer-notes h3{font-size:23px;margin:0 0 17px}
+.developer-notes p,.developer-list{font-size:13px;line-height:1.85;color:#575448}
+.developer-list{padding-left:21px;margin:0}
+.developer-list li{padding-left:4px;margin-bottom:12px}
+.developer-list li::marker{color:var(--red)}
+.source-list{padding-left:18px;line-height:1.8}
+.developer-notes .image-credit{padding-top:14px;border-top:1px solid var(--line);color:var(--ink);font-weight:600}
+.studio-note p,.studio-note li{font-size:14px;line-height:1.85}
+.studio-note h3{font-size:23px;margin:24px 0 12px}
+.studio-note .note-list{padding-left:20px}
+@media(max-width:1120px){.side-stack{grid-template-columns:1fr}}
+@media(max-width:760px){.brand-mark{width:34px;height:34px}.lookbook-nav{padding:8px 12px}.hero .hero-intro{font-size:16px}.home-collection{margin-top:28px}.studio-info-card{font-size:14px;padding:13px;min-height:70px}footer{font-size:13px}footer button{font-size:12px}}
+@media(max-width:400px){.brand-mark{width:30px;height:30px}.lookbook-nav{padding:7px 9px;gap:6px}.studio-info-cards{gap:8px}.studio-info-card{padding:11px;font-size:13px}}
