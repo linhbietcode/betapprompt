@@ -9,7 +9,7 @@ for(const module of ['catalog','gemini-errors','recommendation','illustration','
   js+=(await readFile(new URL(`../public/${module}.mjs`,import.meta.url),'utf8'))
     .replace(/^import[^\n]+\n/gm,'').replace(/^export /gm,'')+'\n';
 }
-function app(){const s=surface();vm.runInContext(js,s.context);return s;}
+function app(legacyData){const s=surface();if(legacyData)s.memory.set('vietphuc-remix-v2',JSON.stringify(legacyData));vm.runInContext(js,s.context);return s;}
 const saved=s=>JSON.parse(s.memory.get('vietphuc-remix-v2'));
 const modal=s=>s.elements.get('#modal');
 
@@ -85,4 +85,27 @@ test('comparison still has three selectable presets and about shows bullet notes
   assert.match(modal(s).innerHTML,/Ghi chú từ nhóm phát triển/);
   assert.match(modal(s).innerHTML,/<ul class="developer-list">/);
   assert.match(modal(s).innerHTML,/Ảnh do người phát triển và mã nguồn gốc cung cấp\./);
+});
+
+test('older saved looks remain usable after removing weather, without stale weather advice',async()=>{
+  const oldSet={garment:'baba',occasion:'walk',style:'minimal',color:'sage',accent:'ivory',accessories:['sandal'],avatar:'medium',hair:'bun',weather:'rain'};
+  const s=app({state:oldSet,book:[{id:'old-look',set:oldSet}],garmentPinned:true});
+  assert.equal('weather' in saved(s).state,false);
+  assert.equal('weather' in saved(s).book[0].set,false);
+  s.location.hash='#studio';
+  assert.doesNotMatch(s.html(),/id="weather"|Thời tiết|thời tiết/);
+  await s.click('garmentInfo');
+  assert.match(modal(s).innerHTML,/Câu chuyện dáng áo/);
+  assert.match(modal(s).innerHTML,/class="note-footer"/);
+  await s.click('close');
+  await s.click('stylingInfo');
+  assert.match(modal(s).innerHTML,/class="note-color-pair"/);
+  assert.doesNotMatch(modal(s).innerHTML,/Có mưa:|Trời nóng:|Trời lạnh:/);
+  await s.click('close');
+  s.location.hash='#lookbook';
+  await s.click('restore',{index:'0'});
+  assert.equal(s.location.hash,'#studio');
+  assert.equal(saved(s).state.garment,'baba');
+  assert.equal(saved(s).state.color,'sage');
+  assert.deepEqual(saved(s).state.accessories,['sandal']);
 });
