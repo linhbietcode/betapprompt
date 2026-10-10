@@ -1,0 +1,10 @@
+gemini.env
+.env*
+.git/
+.vercel/
+node_modules/
+tests/
+*.log
+*.bat
+*.ps1
+README.md
